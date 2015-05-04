@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MapViewController.h"
+#import "InfoViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Intialize ViewControllers & TabBar
+    MapViewController *mapVC = [[MapViewController alloc]init];
+    mapVC.title = @"Maps";
+    mapVC.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
+    
+    InfoViewController *infoVC = [[InfoViewController alloc]init];
+    infoVC.title = @"More Info";
+    infoVC.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMore tag:2];
+    
+    // Debuging helpers
+    mapVC.view.backgroundColor = [UIColor redColor];
+    infoVC.view.backgroundColor = [UIColor greenColor];
+    
+    // Enable TabBar
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    tabBarController.viewControllers = @[mapVC, infoVC];
+    
+    // Set Window
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    self.window.rootViewController = tabBarController;
+    
     return YES;
 }
 

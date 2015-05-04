@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  InfoViewController.h
 //  BikeShare
 //
 //  Created by Daniel Goncalves on 2015-05-04.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface InfoViewController : UIViewController
 
 @end
-
